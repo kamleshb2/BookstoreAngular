@@ -19,7 +19,15 @@ export class BookListComponent implements OnInit {
 
   books : any[] = bookList;
   name : string = 'Karthik';
+  private showbooks:boolean = false;
 
+  Show():void{
+    this.showbooks=true;
+  } 
+
+  Hide():void{
+    this.showbooks=false;
+  } 
   changeName() : void {
     this.name = "Hello";
   }

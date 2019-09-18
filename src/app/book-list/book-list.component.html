@@ -3,27 +3,41 @@
 <h1 align="center">Book List</h1>
 </div>
 <div class="card-body">
-    <div *ngFor = "let b of books">
-    <table>
-        <tr>
-            <td>Book Name: </td>
-            <td>{{b.name}}</td>
-        </tr> 
-        <tr>   
-            <td> Book ID:          </td> 
-            <td>   {{b.ID}}  </td> 
-         </tr>
-         <tr>
-            <td> Publisher:  </td>
-            <td>{{b.publisher}} </td>
-        </tr>
+    <button class="btn btn-primary"  (click)="Show()" >Show All Books</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary" (click)="Hide()">Hide All Books</button>
 
-        <button class="btn btn-primary">Edit This Book</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-danger">Delete This Book</button>
-        <hr/>
-</table>
-</div>
+    <div *ngIf="showbooks==true">
+
+            <div *ngFor = "let b of books">
+                    <table>
+                        <tr>
+                            <td>Book Name: </td>
+                            <td>{{b.name}}</td>
+                        </tr> 
+                        <tr>   
+                            <td> Book ID:          </td> 
+                            <td>   {{b.ID}}  </td> 
+                         </tr>
+                         <tr>
+                            <td> Publisher:  </td>
+                            <td>{{b.publisher}} </td>
+                        </tr>
+                        <tr>
+                                <td> Image File:  </td>
+                                <td>{{b.thumbnail}} </td>
+                            </tr>
+                        <img src="{{b.thumbnail}}" height="50px" width="50px">
+                
+                        <button class="btn btn-primary">Edit This Book</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-danger">Delete This Book</button>
+                        <hr/>
+                </table>
+                </div>
+
+    </div>
+
 
 <input type="text" [(ngModel)] = "name"> 
 
