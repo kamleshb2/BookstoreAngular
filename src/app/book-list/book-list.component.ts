@@ -18,6 +18,10 @@ export class BookListComponent implements OnInit {
 
 
   books : any[] = bookList;
+  name : string = 'Karthik';
 
+  changeName() : void {
+    this.name = "Hello";
+  }
 
 }

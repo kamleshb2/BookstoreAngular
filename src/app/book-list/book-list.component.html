@@ -3,19 +3,44 @@
 <h1 align="center">Book List</h1>
 </div>
 <div class="card-body">
+    <div *ngFor = "let b of books">
     <table>
         <tr>
             <td>Book Name: </td>
-            <td>{{books[0].name}}</td>
+            <td>{{b.name}}</td>
         </tr> 
         <tr>   
             <td> Book ID:          </td> 
-            <td>   {{books[0].ID}}  </td> 
+            <td>   {{b.ID}}  </td> 
          </tr>
          <tr>
             <td> Publisher:  </td>
-            <td>{{books[0].publisher}} </td>
+            <td>{{b.publisher}} </td>
         </tr>
+
+        <button class="btn btn-primary">Edit This Book</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-danger">Delete This Book</button>
+        <hr/>
 </table>
+</div>
+
+<input type="text" [(ngModel)] = "name"> 
+
+<h1> {{name}}</h1>
+
+<button class = "btn btn-primary" (click) = "changeName()"> Change </button>
+
+<select>
+
+    <option *ngFor="let b of books">
+        {{b.ID}}
+    </option>
+</select>
+
+<table>
+
+</table>
+
 </div>
 </div>
