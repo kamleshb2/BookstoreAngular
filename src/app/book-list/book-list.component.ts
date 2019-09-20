@@ -1,35 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import {bookList}  from '../book/book-list.component';
+import {allbooks} from '../book-list.component';
 
 @Component({
   selector: 'book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-export class BookListComponent implements OnInit {
-
-
-  constructor() { 
-
-  }
-
-  ngOnInit() {
-  }
-
-
-  books : any[] = bookList;
-  name : string = 'Karthik';
+export class BookListComponent implements OnInit
+{
+  private books:any[] = allbooks;
   private showbooks:boolean = false;
 
-  Show():void{
-    this.showbooks=true;
-  } 
+  constructor() { }
 
-  Hide():void{
-    this.showbooks=false;
-  } 
-  changeName() : void {
-    this.name = "Hello";
+  Show():void
+  {
+    this.showbooks = true;
+  }
+  Hide():void
+  {
+    this.showbooks = false;
+  }
+
+
+
+  ngOnInit() {
   }
 
 }
