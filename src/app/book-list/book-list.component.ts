@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {allbooks} from '../book-list.component';
+//import {allbooks} from '../BookRepository';
+import {BooksService} from '../books.service';
+
 
 @Component({
   selector: 'book-list',
@@ -8,10 +10,13 @@ import {allbooks} from '../book-list.component';
 })
 export class BookListComponent implements OnInit
 {
-  private books:any[] = allbooks;
+  private books:any[];
   private showbooks:boolean = false;
 
-  constructor() { }
+  constructor(private booksvc: BooksService)
+  {
+    this.books = this.booksvc.GetAllBooks();
+  }
 
   Show():void
   {
@@ -20,6 +25,11 @@ export class BookListComponent implements OnInit
   Hide():void
   {
     this.showbooks = false;
+  }
+
+  DeleteBook(bookid:number)
+  {
+    
   }
 
 

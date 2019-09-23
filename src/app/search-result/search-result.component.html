@@ -4,7 +4,7 @@
   </div>
   <div class="card-body">
 
-    <h4 *ngIf="result!=undefined || result!=null || saerchbookid    ; else sometemplate">
+    <h4 *ngIf="result!=undefined || result!=null ; else sometemplate">
         {{result.bookname}} <br/>
         {{result.publisher}} <br/>
         {{result.price}} <br/>

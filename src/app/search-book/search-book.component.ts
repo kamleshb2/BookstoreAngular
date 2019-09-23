@@ -8,6 +8,7 @@ import { Component, OnInit} from '@angular/core';
 export class SearchBookComponent implements OnInit {
 
   private bookid:number;
+  private childbookid:number;
   errormessage:string;
 
   constructor() { }
@@ -17,11 +18,12 @@ export class SearchBookComponent implements OnInit {
 
   GetErrorMessage(message:string)
   {
-    
+    this.errormessage = message;
+  }
 
-      this.errormessage = message;
-
-    
-}
+  PassToChild()
+  {
+    this.childbookid = this.bookid;
+  }
 
 }

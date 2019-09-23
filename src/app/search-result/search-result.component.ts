@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter,Output } from '@angular/core';
-import {allbooks} from '../book-list.component';
+//import {allbooks} from '../BookRepository';
+import {BooksService} from '../books.service';
 
 @Component({
   selector: 'search-result',
@@ -16,7 +17,7 @@ export class SearchResultComponent implements OnInit {
   @Output()
   errorevent:EventEmitter<string> = new EventEmitter<string>();
 
-  constructor()
+  constructor(private svc: BooksService)
   {
     //console.log("CONSTRUCTOR: book id from parent is: ", this.searchbookid);
   }
@@ -28,18 +29,16 @@ export class SearchResultComponent implements OnInit {
   ngOnChanges()
   {
     console.log("ngOnChanges: book id from parent is: ", this.searchbookid);
-    if(this.searchbookid){
-    this.result = allbooks.find(b => b.bookid == this.searchbookid);
-    if(this.result == undefined || this.result == null )
+
+    // this.result = allbooks.find(b => b.bookid == this.searchbookid);
+    // if(this.result == undefined || this.result == null)
+    // {
+    //   this.errorevent.emit("Book not found!");
+    // }
+    this.result = this.svc.GetBookById(this.searchbookid);
+    if(this.result == undefined || this.result == null)
     {
       this.errorevent.emit("Book not found!");
     }
-    else{
-      this.errorevent.emit(" ");
-    }
   }
-  else{
-    this.errorevent.emit(" ");
-  }
-}
 }

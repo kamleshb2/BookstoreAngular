@@ -19,7 +19,10 @@
           <img height="80px" width="80px" src="{{b.thumbnail}}"/>
           <button class="btn btn-primary">Edit this book</button>
             &nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="btn btn-danger">Delete this book</button>
+
+          <button class="btn btn-danger" (click)="DeleteBook(b.bookid)">
+            Delete this book
+          </button>
           <hr/>
         </div>
     </div>
