@@ -10,30 +10,27 @@
     <div *ngIf="showbooks==true">
 
             <div *ngFor = "let b of books">
-                    <table>
+                    <div class = "table-bordered">
+                        <table>
                         <tr>
-                            <td>Book Name: </td>
-                            <td>{{b.name}}</td>
+                            <th>Book Name: </th>
+                            <th>Book ID</th>
+                            <th>Publisher</th>
+                            <th>Image Thumbnail</th>
                         </tr> 
-                        <tr>   
-                            <td> Book ID:          </td> 
-                            <td>   {{b.ID}}  </td> 
-                         </tr>
-                         <tr>
-                            <td> Publisher:  </td>
+                        <tr> 
+                            <td>{{b.name}} </td>
+                            <td>   {{b.ID}}  </td>
                             <td>{{b.publisher}} </td>
-                        </tr>
-                        <tr>
-                                <td> Image File:  </td>
-                                <td>{{b.thumbnail}} </td>
-                            </tr>
-                        <img src="{{b.thumbnail}}" height="50px" width="50px">
-                
+                            <td>{{b.thumbnail}} </td>
+                            <td><img src="{{b.thumbnail}}" height="50px" width="50px"></td>
+                        </tr> 
                         <button class="btn btn-primary">Edit This Book</button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;
+                        
                         <button class="btn btn-danger">Delete This Book</button>
                         <hr/>
                 </table>
+                </div>
                 </div>
 
     </div>
