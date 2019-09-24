@@ -1,57 +1,35 @@
-<div class ="card">
-<div class="card-header">
-<h1 align="center">Book List</h1>
-</div>
-<div class="card-body">
-    <button class="btn btn-primary"  (click)="Show()" >Show All Books</button>
-    &nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;
+<div class="card">
+  <div class="card-header">
+    <h4 align="center">BookList Component</h4>
+  </div>
+  <div class="card-body">
+    <button class="btn btn-primary" (click)="Show()">Show All Books</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
     <button class="btn btn-primary" (click)="Hide()">Hide All Books</button>
+
 
     <div *ngIf="showbooks==true">
 
-            <div *ngFor = "let b of books">
-                    <div class = "table-bordered">
-                        <table>
-                        <tr>
-                            <th>Book Name: </th>
-                            <th>Book ID</th>
-                            <th>Publisher</th>
-                            <th>Image Thumbnail</th>
-                        </tr> 
-                        <tr> 
-                            <td>{{b.name}} </td>
-                            <td>   {{b.ID}}  </td>
-                            <td>{{b.publisher}} </td>
-                            <td>{{b.thumbnail}} </td>
-                            <td><img src="{{b.thumbnail}}" height="50px" width="50px"></td>
-                        </tr> 
-                        <button class="btn btn-primary">Edit This Book</button>
-                        
-                        <button class="btn btn-danger">Delete This Book</button>
-                        <hr/>
-                </table>
-                </div>
-                </div>
+
+        <h4>Total books: {{books.length}}</h4>
+
+        <div *ngFor="let b of books">
+          <h5>Book Code: {{b.bookid}}</h5>
+          <span>Book Name: {{b.bookname}}</span> <br/>
+          <span>Publisher: {{b.publisher}}</span> <br/>
+          <span>Price: {{b.price}}</span> <br/>
+          <span>Image File: {{b.thumbnail}}</span> <br/>
+          <img height="80px" width="80px" src="{{b.thumbnail}}"/>
+          <button class="btn btn-primary"  (click) = "editBook(b.bookid)">Edit this book</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-danger" (click) = "DeleteBook(b.bookid)" >  Delete this book</button>
+          <hr/>
+
+          </div>
+          <app-edit-book [childbookid] = "editbookid" [childeditbook] = "showeditbook" (message) = "GetMessage($event)" > </app-edit-book>
+        </div>
 
     </div>
 
 
-<input type="text" [(ngModel)] = "name"> 
-
-<h1> {{name}}</h1>
-
-<button class = "btn btn-primary" (click) = "changeName()"> Change </button>
-
-<select>
-
-    <option *ngFor="let b of books">
-        {{b.ID}}
-    </option>
-</select>
-
-<table>
-
-</table>
-
-</div>
-</div>
+  </div>

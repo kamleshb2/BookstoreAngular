@@ -1,0 +1,36 @@
+
+
+<div *ngIf="childeditbook==true">
+
+<div class="card">
+    <div class="card-header">
+      <h4 align="center">Edit Book Component</h4>
+    </div>
+    <div class="card-body">
+        <p>
+          Book Name:
+          <input type="text" [(ngModel)]="bookname"/>
+      </p>
+  
+      <p>
+          Publisher
+          <input type="text" [(ngModel)]="publisher"/>
+      </p>
+  
+      <p>
+          Price
+          <input type="text" [(ngModel)]="price"/>
+      </p>
+  
+      <p>
+          Thumbnail Image: (Choose image file)
+          <input type="file" [(ngModel)]="thumbnail"/>
+      </p>
+  
+      <button class="btn btn-primary" (click)="EditBook()">
+        Edit Book
+      </button>
+    </div>
+  </div>
+</div>
+

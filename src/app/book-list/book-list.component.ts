@@ -1,35 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import {bookList}  from '../book/book-list.component';
+//import {allbooks} from '../BookRepository';
+import {BooksService} from '../books.service';
+
 
 @Component({
   selector: 'book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-export class BookListComponent implements OnInit {
+export class BookListComponent implements OnInit
+{
+  private books:any[];
+  private showbooks:boolean = false;
+  private editbookid: number;
+  private showeditbook: boolean;
+  private editBookMessage: string;
 
+  constructor(private booksvc: BooksService)
+  {
+    this.books = this.booksvc.GetAllBooks();
+  }
 
-  constructor() { 
+  Show():void
+  {
+    this.showbooks = true;
+  }
+  Hide():void
+  {
+    this.showbooks = false;
+  }
+
+  DeleteBook(bookid:number)
+  {
+   let message = this.booksvc.DeleteBook(bookid);
+   console.log(message);
+  }
+
+  editBook(bookid: number){
+
+    this.editbookid = bookid;
+    this.showeditbook = true;
 
   }
+
+
 
   ngOnInit() {
   }
 
-
-  books : any[] = bookList;
-  name : string = 'Karthik';
-  private showbooks:boolean = false;
-
-  Show():void{
-    this.showbooks=true;
-  } 
-
-  Hide():void{
-    this.showbooks=false;
-  } 
-  changeName() : void {
-    this.name = "Hello";
+  GetMessage(message: string){
+    this.editBookMessage = message;
+    console.log(message);
+    alert(message);
   }
 
 }
