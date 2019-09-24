@@ -12,6 +12,9 @@ export class BookListComponent implements OnInit
 {
   private books:any[];
   private showbooks:boolean = false;
+  private editbookid: number;
+  private showeditbook: boolean;
+  private editBookMessage: string;
 
   constructor(private booksvc: BooksService)
   {
@@ -29,12 +32,26 @@ export class BookListComponent implements OnInit
 
   DeleteBook(bookid:number)
   {
-    
+   let message = this.booksvc.DeleteBook(bookid);
+   console.log(message);
+  }
+
+  editBook(bookid: number){
+
+    this.editbookid = bookid;
+    this.showeditbook = true;
+
   }
 
 
 
   ngOnInit() {
+  }
+
+  GetMessage(message: string){
+    this.editBookMessage = message;
+    console.log(message);
+    alert(message);
   }
 
 }

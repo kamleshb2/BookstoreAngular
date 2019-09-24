@@ -7,7 +7,10 @@
     &nbsp;&nbsp;&nbsp;&nbsp;
     <button class="btn btn-primary" (click)="Hide()">Hide All Books</button>
 
+
     <div *ngIf="showbooks==true">
+
+
         <h4>Total books: {{books.length}}</h4>
 
         <div *ngFor="let b of books">
@@ -17,20 +20,16 @@
           <span>Price: {{b.price}}</span> <br/>
           <span>Image File: {{b.thumbnail}}</span> <br/>
           <img height="80px" width="80px" src="{{b.thumbnail}}"/>
-          <button class="btn btn-primary">Edit this book</button>
+          <button class="btn btn-primary"  (click) = "editBook(b.bookid)">Edit this book</button>
             &nbsp;&nbsp;&nbsp;&nbsp;
-
-          <button class="btn btn-danger" (click)="DeleteBook(b.bookid)">
-            Delete this book
-          </button>
+          <button class="btn btn-danger" (click) = "DeleteBook(b.bookid)" >  Delete this book</button>
           <hr/>
+
+          </div>
+          <app-edit-book [childbookid] = "editbookid" [childeditbook] = "showeditbook" (message) = "GetMessage($event)" > </app-edit-book>
         </div>
+
     </div>
 
-    <!-- <select>
-      <option *ngFor="let b of books">
-        {{b.bookid}}
-      </option>
-    </select> -->
+
   </div>
-</div>

@@ -36,24 +36,69 @@ export class BooksService
     {
       return "Book id: " + book.bookid + " already exists";
     }
+
+      
+      
+    let path = book.thumbnail.split("\\" ,3);
+
+    book.thumbnail = "assets/" + path[2];
+      
+
+    
+     
+
     this.allbooks.push(book);
     return "Book with id: " +book.bookid +" added successfully";
   }
 
   DeleteBook(bookid: number): string
   {
+    var flag: Boolean = false;
+    for(let i=0; i<this.allbooks.length; i++){
+      if(this.allbooks[i].bookid == bookid){
+        this.allbooks.splice(i,1);
+        flag == true;
+        break;
+      }
+      
+    }
 
-    let result = this.allbooks.find(b => b.bookid == bookid);
-    this
-
-    return "NA";
+    if(flag){
+      return "successfully deleted";
+    }
+    else{
+      return "given id doesn't exist";
+    }
   }
 
-  ValidateThumbnailFileExtension(filename:string): boolean
+  ValidatePath(filename:string): String
+  {
+    
+
+    let path = filename.split("\\" ,3);
+
+    var thumbnail = "assets/" + path[2];
+   
+
+    return thumbnail;
+  }
+
+  ValidateThumbanilPathExtension(filename: string): boolean
   {
     //return true if the validation is successful
     //return false if the validation fails
-    return true;
+
+    var isValid: boolean;
+    let path = filename.split(".",2)
+    if(path[1] == "jpg" || path[1] == "jpeg" || path[1] == "png" || path[1] == "gif"){
+      isValid = true;
+    }
+    else{ 
+      isValid = false;
+    }
+
+    return isValid;
+
   }
 
   EditBook(newbookdetails:any): string
@@ -69,8 +114,8 @@ export class BooksService
         break;
 
       }
-      return "Book with id: " +newbookdetails.bookid +" edited";
     }
+    return "Book with id: " +newbookdetails.bookid +" edited";
   }
 
 }

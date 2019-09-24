@@ -8,6 +8,7 @@ import { SearchBookComponent } from './search-book/search-book.component';
 import {FormsModule} from '@angular/forms';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { AddBookComponent } from './add-book/add-book.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AddBookComponent } from './add-book/add-book.component';
     BookListComponent,
     SearchBookComponent,
     SearchResultComponent,
-    AddBookComponent
+    AddBookComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule, FormsModule
