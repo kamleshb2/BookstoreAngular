@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">
+      <h2 align="center">Root Component</h2>
+    </div>
+    <div class="card-body">
+        <button class="btn btn-warning" (click)="GetAllNumbers()">Get All Numbers 1 to 10  </button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-warning" (click) = "GetEven()" >Get All Even Numbers 1 to 10  </button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-warning">Get All Odd Numbers 1 to 10  </button>
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-warning" (click) = "multiplyby2()" >Multiply each by 2 </button>
+        &nbsp;&nbsp;&nbsp;
+        
+        <ul>
+            <li *ngFor = "let num of result">
+                {{num}}
+            </li>
+        </ul>
+
+    </div>
+  </div>

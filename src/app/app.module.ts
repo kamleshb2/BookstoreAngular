@@ -11,6 +11,7 @@ import { AddBookComponent } from './add-book/add-book.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { ObservableComponent } from './observable/observable.component';
 import {HttpClientModule} from '@angular/common/http';
+import { RxjsOperatorsComponent } from './rxjs-operators/rxjs-operators.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule} from '@angular/common/http';
     SearchResultComponent,
     AddBookComponent,
     EditBookComponent,
-    ObservableComponent
+    ObservableComponent,
+    RxjsOperatorsComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule
